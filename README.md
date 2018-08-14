@@ -1,5 +1,5 @@
-# Penalty_shootout_Game
-진땀 나는 승부차기 게임. project
+# :soccer:Penalty_shootout_Game:soccer:
+진땀 나는 승부차기 게임.projet
 
 5번씩의 기회로 승부를 가린다!  
 **Get a goal or Lose a goal**  
