@@ -1,4 +1,4 @@
-# :soccer:Penalty_shootout_Game:soccer:
+# :soccer: Penalty_shootout_Game :soccer:
 진땀 나는 승부차기 게임.projet
 
 5번씩의 기회로 승부를 가린다!  
