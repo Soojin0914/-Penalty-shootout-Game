@@ -2,17 +2,20 @@
 #include <stdlib.h>
 using namespace std;
 
+#define TRUE 1
+#define MAX_VALUE 5
+#define MINIMUM_CHANCE 4
 int main() {
 
 	int computer_score = 0;
 	int user_score = 0;
 	int opportunity = 0;
-	while (1) {
+	while (TRUE) {
 		opportunity++;
 		//1. 0~5 사이의 난수 한개를 생성한다. (컴퓨터가 차는 경우)
 		int computer;
 
-		computer = 1 + rand() % 5;
+		computer = 1 + rand() % MAX_VALUE;
 
 		cout << "Computer kicks a ball.";
 		cout << computer << endl;
@@ -39,7 +42,7 @@ int main() {
 		cout << "Computer:User = " << computer_score << " : " << user_score << endl;
 
 		//5.  0~5 사이의 난수 한개를 생성한다. (사용자가 차는 경우)
-		computer = 1 + rand() % 5;
+		computer = 1 + rand() % MAX_VALUE;
 
 		cout << "You kick a ball.";
 		cout << computer << endl;
@@ -61,7 +64,7 @@ int main() {
 
 
 		//9. 5번씩의 기회가 끝나고 최종 결과를 출력하고 끝난다.
-		if (opportunity > 4) {
+		if (opportunity > MINIMUM_CHANCE) {
 			if (computer_score != user_score) {
 				if (computer_score > user_score) {
 					cout << computer_score << " : " << user_score << "  Winner is Computer." << endl;
