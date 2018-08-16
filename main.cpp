@@ -7,9 +7,9 @@ using namespace std;
 #define MAX_VALUE 5
 #define MINIMUM_CHANCE 4
 
-int Number() {
+int Number(const char* who) {
 	
-
+	cout << who<<" kicks a ball.";
 	int number = 1 + rand() % MAX_VALUE;
 
 	return number;
@@ -22,10 +22,33 @@ int Input() {
 	return user;
 }
 
-void ScorePrint(int computer, int user) {
+void PrintScore(const char* message,int computer, int user) {
 
+	cout << message << endl;
 	cout << "Computer:User = " << computer << " : " << user<< endl;
 
+}
+
+int ComputerTurn(int kicker, int keeper, int computer_score, int user_score) {
+	
+	if (kicker != keeper) {
+		computer_score++;
+		PrintScore("Miss a ball.", computer_score, user_score);
+	}
+	else {
+		PrintScore("Catch a ball.", computer_score, user_score);
+	}
+	return computer_score;
+}
+int UserTurn(int kicker, int keeper, int computer_score, int user_score) {
+	if (kicker != keeper) {
+		user_score++;
+		PrintScore("Get a goal.", computer_score, user_score);
+	}
+	else {
+		PrintScore("Lose a goal.", computer_score, user_score);
+	}
+	return user_score;
 }
 
 int main() {
@@ -38,57 +61,36 @@ int main() {
 		opportunity++;
 
 		//1. 0~5 사이의 난수 한개를 생성한다. (컴퓨터가 차는 경우)
-		int computer = Number();
-		cout << "Computer kicks a ball.";
-		
+		int computer = Number("computer");
+	
 
 		//2. 사용자가 1개의 숫자를 입력한다. 
-		int user;
-		user=Input();
+		int user=Input();
 	    
 
-		//3. 결과를 계산한다. 
-		if (computer != user) {
-			score.computer++;
-			cout << "Miss a ball." << endl;
-		}
-		else {
-			cout << "Catch a ball." << endl;
-		}
-
-		//4. 결과를 출력한다.
-		ScorePrint(score.computer, score.user);
+		//3. 결과를 계산한다. //4. 결과를 출력한다.
+		score.computer=ComputerTurn(computer, user, score.computer, score.user);
+		
 
 		//5.  0~5 사이의 난수 한개를 생성한다. (사용자가 차는 경우)
-		computer = Number();
-		cout << "You kick a ball.";
+		computer = Number("User");
 
 		//6. 사용자가 1개의 숫자를 입력한다. 
 		user = Input();
 
-		//7. 결과를 계산한다.
-		if (computer != user) {
-			score.user++;
-			cout << "Get a goal." << endl;
-		}
-		else {
-			cout << "Lose a goal." << endl;
-		}
+		//7. 결과를 계산한다.//8.결과를 출력한다.
+		score.user=UserTurn(user, computer, score.computer, score.user);
 
-		//8.결과를 출력한다.
-		ScorePrint(score.computer, score.user);
 
 
 		//9. 5번씩의 기회가 끝나고 최종 결과를 출력하고 끝난다.
 		if (opportunity > MINIMUM_CHANCE) {
 			if (score.computer != score.user) {
 				if (score.computer > score.user) {
-					ScorePrint(score.computer, score.user);
-					cout << "  Winner is Computer." << endl;
+					PrintScore("**Winner is Computer**" ,score.computer, score.user);
 				}
 				else if (score.computer < score.user){
-					ScorePrint(score.computer, score.user);
-					cout << "  Winner is User" << endl;
+					PrintScore("**Winner is User**",score.computer, score.user);
 				}
 				break;
 			}
