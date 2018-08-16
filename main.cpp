@@ -6,31 +6,50 @@ using namespace std;
 #define TRUE 1
 #define MAX_VALUE 5
 #define MINIMUM_CHANCE 4
+
+int Number() {
+	
+
+	int number = 1 + rand() % MAX_VALUE;
+
+	return number;
+}
+
+int Input() {
+	int user;
+	cin >> user;
+
+	return user;
+}
+
+void ScorePrint(int computer, int user) {
+
+	cout << "Computer:User = " << computer << " : " << user<< endl;
+
+}
+
 int main() {
 
 	Score score;
 
 	int opportunity = 0;
+
 	while (TRUE) {
 		opportunity++;
+
 		//1. 0~5 사이의 난수 한개를 생성한다. (컴퓨터가 차는 경우)
-		int computer;
-
-		computer = 1 + rand() % MAX_VALUE;
-
+		int computer = Number();
 		cout << "Computer kicks a ball.";
-		cout << computer << endl;
+		
 
 		//2. 사용자가 1개의 숫자를 입력한다. 
 		int user;
-
-		cin >> user;
+		user=Input();
+	    
 
 		//3. 결과를 계산한다. 
-
-
 		if (computer != user) {
-			score.computer_score++;
+			score.computer++;
 			cout << "Miss a ball." << endl;
 		}
 		else {
@@ -38,20 +57,18 @@ int main() {
 		}
 
 		//4. 결과를 출력한다.
-		cout << "Computer:User = " << score.computer_score << " : " << score.user_score << endl;
+		ScorePrint(score.computer, score.user);
 
 		//5.  0~5 사이의 난수 한개를 생성한다. (사용자가 차는 경우)
-		computer = 1 + rand() % MAX_VALUE;
-
+		computer = Number();
 		cout << "You kick a ball.";
-		cout << computer << endl;
 
 		//6. 사용자가 1개의 숫자를 입력한다. 
-		cin >> user;
+		user = Input();
 
 		//7. 결과를 계산한다.
 		if (computer != user) {
-			score.user_score++;
+			score.user++;
 			cout << "Get a goal." << endl;
 		}
 		else {
@@ -59,17 +76,19 @@ int main() {
 		}
 
 		//8.결과를 출력한다.
-		cout << "Computer:User = " << score.computer_score << " : " << score.user_score << endl;
+		ScorePrint(score.computer, score.user);
 
 
 		//9. 5번씩의 기회가 끝나고 최종 결과를 출력하고 끝난다.
 		if (opportunity > MINIMUM_CHANCE) {
-			if (score.computer_score != score.user_score) {
-				if (score.computer_score > score.user_score) {
-					cout << score.computer_score << " : " << score.user_score << "  Winner is Computer." << endl;
+			if (score.computer != score.user) {
+				if (score.computer > score.user) {
+					ScorePrint(score.computer, score.user);
+					cout << "  Winner is Computer." << endl;
 				}
-				else if (score.computer_score < score.user_score){
-					cout << score.computer_score << " : " << score.user_score << "  Winner is User" << endl;
+				else if (score.computer < score.user){
+					ScorePrint(score.computer, score.user);
+					cout << "  Winner is User" << endl;
 				}
 				break;
 			}
