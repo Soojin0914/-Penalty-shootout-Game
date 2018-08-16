@@ -4,6 +4,7 @@
 using namespace std;
 
 #define TRUE 1
+#define FALSE 0
 #define MAX_VALUE 5
 #define MINIMUM_CHANCE 4
 
@@ -51,6 +52,24 @@ int UserTurn(int kicker, int keeper, int computer_score, int user_score) {
 	return user_score;
 }
 
+int FinalScore(int computer_score,int user_score) {
+	if (computer_score != user_score) {
+		if (computer_score > user_score) {
+			PrintScore("**Winner is Computer**", computer_score, user_score);
+		}
+		else if (computer_score <  user_score) {
+			PrintScore("**Winner is User**", computer_score, user_score);
+		}
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
+
+	}
+
+
 int main() {
 
 	Score score;
@@ -84,16 +103,13 @@ int main() {
 
 
 		//9. 5번씩의 기회가 끝나고 최종 결과를 출력하고 끝난다.
+		int finish;
+		
 		if (opportunity > MINIMUM_CHANCE) {
-			if (score.computer != score.user) {
-				if (score.computer > score.user) {
-					PrintScore("**Winner is Computer**" ,score.computer, score.user);
-				}
-				else if (score.computer < score.user){
-					PrintScore("**Winner is User**",score.computer, score.user);
-				}
-				break;
-			}
+			finish=	FinalScore(score.computer, score.user);
+			if(finish)break;
+
+			
 		}
 		//10. 무승부라면 1번씩 기회를 더 준다.
 
