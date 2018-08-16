@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <Result.h>
 using namespace std;
 
 #define TRUE 1
