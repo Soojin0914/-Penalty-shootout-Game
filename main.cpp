@@ -68,7 +68,7 @@ int main() {
 				if (score.computer_score > score.user_score) {
 					cout << score.computer_score << " : " << score.user_score << "  Winner is Computer." << endl;
 				}
-				else (score.computer_score < score.user_score) {
+				else if (score.computer_score < score.user_score){
 					cout << score.computer_score << " : " << score.user_score << "  Winner is User" << endl;
 				}
 				break;
