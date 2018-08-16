@@ -68,7 +68,7 @@ int FinalScore(int opportunity, Score* score) {
 
 int main() {
 
-	
+
 	Score score;
 
 	int opportunity = 0;
