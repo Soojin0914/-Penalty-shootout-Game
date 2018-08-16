@@ -1,17 +1,31 @@
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 int main() {
-
+	int mygoal = 0;
+	int comgoal = 0;
 	//1. 0~5 사이의 난수 한개를 생성한다. (컴퓨터가 차는 경우)
+	int comshoot;
 
-
+	while (1) {
+		comshoot = rand() % 5;
+		if (rand() % 5 != 0)break;
+	};
 	//2. 사용자가 1개의 숫자를 입력한다. 
 
+	int block;
+
+	cin >> block;
 
 	//3. 결과를 계산한다. 
+	int mygoal=0;
+	int comgoal=0;
 
+	if (comshoot != block)
+		comgoal++;
 
+	comscore=
 	//4. 결과를 출력한다.
 
 
