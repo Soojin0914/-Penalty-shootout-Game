@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include "Score.h"
 using namespace std;
 
 #define TRUE 1
@@ -7,8 +8,8 @@ using namespace std;
 #define MINIMUM_CHANCE 4
 int main() {
 
-	int computer_score = 0;
-	int user_score = 0;
+	Score score;
+
 	int opportunity = 0;
 	while (TRUE) {
 		opportunity++;
@@ -25,13 +26,11 @@ int main() {
 
 		cin >> user;
 
-
-
 		//3. 결과를 계산한다. 
 
 
 		if (computer != user) {
-			computer_score++;
+			score.computer_score++;
 			cout << "Miss a ball." << endl;
 		}
 		else {
@@ -39,7 +38,7 @@ int main() {
 		}
 
 		//4. 결과를 출력한다.
-		cout << "Computer:User = " << computer_score << " : " << user_score << endl;
+		cout << "Computer:User = " << score.computer_score << " : " << score.user_score << endl;
 
 		//5.  0~5 사이의 난수 한개를 생성한다. (사용자가 차는 경우)
 		computer = 1 + rand() % MAX_VALUE;
@@ -52,7 +51,7 @@ int main() {
 
 		//7. 결과를 계산한다.
 		if (computer != user) {
-			user_score++;
+			score.user_score++;
 			cout << "Get a goal." << endl;
 		}
 		else {
@@ -60,17 +59,17 @@ int main() {
 		}
 
 		//8.결과를 출력한다.
-		cout << "Computer:User = " << computer_score << " : " << user_score << endl;
+		cout << "Computer:User = " << score.computer_score << " : " << score.user_score << endl;
 
 
 		//9. 5번씩의 기회가 끝나고 최종 결과를 출력하고 끝난다.
 		if (opportunity > MINIMUM_CHANCE) {
-			if (computer_score != user_score) {
-				if (computer_score > user_score) {
-					cout << computer_score << " : " << user_score << "  Winner is Computer." << endl;
+			if (score.computer_score != score.user_score) {
+				if (score.computer_score > score.user_score) {
+					cout << score.computer_score << " : " << score.user_score << "  Winner is Computer." << endl;
 				}
-				if (computer_score < user_score) {
-					cout << computer_score << " : " << user_score << "  Winner is User" << endl;
+				if (score.computer_score < score.user_score) {
+					cout << score.computer_score << " : " << score.user_score << "  Winner is User" << endl;
 				}
 				break;
 			}
