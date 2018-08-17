@@ -139,10 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Final.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Turn.cpp" />
+    <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
