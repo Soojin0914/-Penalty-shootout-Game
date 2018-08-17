@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#include <Result.h>
+#include "Result.h"
 using namespace std;
 
 #define TRUE 1
@@ -21,7 +21,7 @@ int main() {
 		cout << "Computer kicks a ball.";
 		cout << computer << endl;
 
-		//2. 사용자가 1개의 숫자를 입력한다. 
+		//2. 사용자가 1개의 숫자를 입력한다. -
 		int user;
 
 		cin >> user;
