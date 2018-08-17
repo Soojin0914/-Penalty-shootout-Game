@@ -1,28 +1,28 @@
 #include "main.h"
 
 
-int UserTurn(int kicker, int keeper, Score* score) {
+int Score::UserTurn(int kicker, int keeper) {
 	if (kicker != keeper) {
-		score->user++;
-		PrintScore("Get a goal.", score->computer, score->user);
+		user++;
+		PrintScore("Get a goal.", computer, user);
 	}
 	else {
-		PrintScore("Lose a goal.", score->computer, score->user);
+		PrintScore("Lose a goal.", computer, user);
 	}
-	return score->user;
+	return user;
 }
 
 
-int ComputerTurn(int kicker, int keeper, Score* score) {
+int Score::ComputerTurn(int kicker, int keeper) {
 
 	if (kicker != keeper) {
-		score->computer++;
-		PrintScore("Miss a ball.", score->computer, score->user);
+		computer++;
+		PrintScore("Miss a ball.", computer,user);
 	}
 	else {
-		PrintScore("Catch a ball.", score->computer, score->user);
+		PrintScore("Catch a ball.", computer, user);
 	}
-	return score->computer;
+	return computer;
 }
 
 void PrintScore(const char* message, int computer, int user) {
