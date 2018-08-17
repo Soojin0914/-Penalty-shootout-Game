@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Final.cpp" />
-    <ClCompile Include="PrintScore.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Turn.cpp" />
