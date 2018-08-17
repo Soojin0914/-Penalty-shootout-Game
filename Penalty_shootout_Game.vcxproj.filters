@@ -27,6 +27,9 @@
     <ClCompile Include="Select.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="PrintScore.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Score.h">
