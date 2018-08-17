@@ -12,4 +12,4 @@ using namespace std;
 #define MINIMUM_CHANCE 4
 
 
-void PrintScore(const char* message, int computer, int user);
+

@@ -4,10 +4,10 @@
 int Score::UserTurn(int kicker, int keeper) {
 	if (kicker != keeper) {
 		user++;
-		PrintScore("Get a goal.", computer, user);
+		PrintScore("Get a goal.");
 	}
 	else {
-		PrintScore("Lose a goal.", computer, user);
+		PrintScore("Lose a goal.");
 	}
 	return user;
 }
@@ -17,15 +17,15 @@ int Score::ComputerTurn(int kicker, int keeper) {
 
 	if (kicker != keeper) {
 		computer++;
-		PrintScore("Miss a ball.", computer,user);
+		PrintScore("Miss a ball.");
 	}
 	else {
-		PrintScore("Catch a ball.", computer, user);
+		PrintScore("Catch a ball.");
 	}
 	return computer;
 }
 
-void PrintScore(const char* message, int computer, int user) {
+void Score::PrintScore(const char* message) {
 
 	cout << message << endl;
 	cout << "Computer:User = " << computer << " : " << user << endl;

@@ -7,7 +7,7 @@ struct Score
 	int ComputerTurn(int kicker, int keeper);
 	int UserTurn(int kicker, int keeper);
 	int Final(int opportunity);
-
+	void PrintScore(const char* message);
 
 };
 
